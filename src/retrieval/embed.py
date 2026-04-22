@@ -21,7 +21,7 @@ import chromadb
 from chromadb.config import Settings
 import uuid
 
-from src.config import (
+from src.config.config import (
     CHROMA_DIR,
     CHROMA_COLLECTION,
     EMBEDDING_MODEL,

@@ -5,12 +5,12 @@ from dotenv import load_dotenv
 load_dotenv()  # loads .env file automatically
 
 # ── Project root ──────────────────────────────────────────────────────────────
-ROOT_DIR = Path(__file__).resolve().parent.parent
+ROOT_DIR = Path(__file__).resolve().parent.parent.parent
 
 # ── Data paths ────────────────────────────────────────────────────────────────
 DATA_DIR  = ROOT_DIR / "data"
 PDF_DIR   = DATA_DIR / "pdfs"
-URLS_FILE = DATA_DIR / "urls.txt"
+URLS_FILE = DATA_DIR / "urls" / "urls.txt"
 
 # ── ChromaDB ──────────────────────────────────────────────────────────────────
 CHROMA_DIR        = ROOT_DIR / "chroma_store"

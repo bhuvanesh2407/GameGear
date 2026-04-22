@@ -48,14 +48,20 @@ Embed question ──► Similarity search (ChromaDB)
 ## Project Structure
 
 ```
-gamegear-ai/
+GameGear/
 ├── data/
 │   ├── pdfs/           # Drop product PDFs here
 │   └── urls.txt        # One URL per line to scrape
 ├── src/
-│   ├── config.py       # All settings (paths, models, keys)
-│   ├── ingest.py       # PDF loader + web scraper
-│   ├── embed.py        # Chunking + embedding + ChromaDB storage
+│   ├── config
+│       └── config.py   # All settings (paths, models, keys)
+│   ├── generation
+│   ├── ingestion
+│       └── ingest.py
+│   ├── pipeline        # PDF loader + web scraper
+│   ├── retrieval
+│       └── embed.py    # Chunking + embedding + ChromaDB storage
+│       └── retrieve.py # Similarity search
 │   ├── retrieve.py     # Similarity search
 │   ├── generate.py     # Prompt builder + Groq LLM call
 │   └── pipeline.py     # Wires retrieve + generate into ask()
@@ -73,8 +79,8 @@ gamegear-ai/
 ### 1. Clone and install
 
 ```bash
-git clone https://github.com/your-username/gamegear-ai.git
-cd gamegear-ai
+git clone https://github.com/bhuvanesh2407/GameGear.git
+cd GameGear
 pip install -r requirements.txt
 ```
 
@@ -92,13 +98,13 @@ cp .env.example .env
 data/pdfs/
 
 # Add product/FAQ page URLs to:
-data/urls.txt
+data/urls/urls.txt
 ```
 
 ### 4. Build the index
 
 ```bash
-python -m src.embed
+python -m src.retrieval.embed
 ```
 
 ### 5. Run the app
